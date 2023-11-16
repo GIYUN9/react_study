@@ -15,7 +15,11 @@ const serverNotifications = [
 ]
 
 let timer;
-
+/*
+    calss Component
+    state를 가지고 있고 이를 수정할 수 있다.
+    라이프사이클에 따른 생명주기메서드를 사용할 수 있다.
+*/
 class NotificationList extends Component {
     constructor(props){
         super(props);
@@ -46,7 +50,6 @@ class NotificationList extends Component {
                 }
                 console.log("componentDidMount : end")
             },2000)
-
 
     }
 
