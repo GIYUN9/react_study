@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App > nav > ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  min-width: 300px;
+}
