@@ -50,6 +50,11 @@ function App() {
   const handleAddReply = () => {
     const isCheckId = reply.some((r) => String(r.id) === newReply.id); //some()하나라도 트루라면 트루반환
     console.log()
+
+    if(!newReply.id || !newReply.writer || !newReply.reply || !newReply.reply_date){
+      alert("모든 값을 입력해주세요.")
+      return;
+    }
     if(isCheckId){
       alert('이미 존재하는 아이디입니다.');
       setNewReply({...newReply, 'id' : ''})
@@ -92,7 +97,7 @@ function App() {
         </nav>
         <Routes>
           <Route path='/' element={<Home reply={reply} onDelectReply={handleDelectReply} />} />
-          <Route path='/create' 
+          <Route path='/create'
               element={<CreateReply newReply={newReply} 
               onInputChange={handleInputChange} 
               onAddReply={handleAddReply}/>
