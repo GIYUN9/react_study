@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Title, DescriptText } from './components/CommonsStyles';
 import SearchBar from './components/SearchBar';
 import { useState } from 'react';
+import { CallGpt } from './service/gpt';
 
 function App() {
   const [searchText, setSearchText] = useState('');
@@ -12,8 +13,19 @@ function App() {
     setSearchText(ev.target.value);
   }
 
-  const handleClickSearchIcon = () => {
-    console.log(searchText);
+  const handleClickSearchIcon = async () => {
+    // gpt에게 searchText정보 전송
+    try{
+      const message = await CallGpt({
+        prompt : `${searchText}`
+      })
+
+      console.log(JSON.parse(message));
+    } catch(error){
+      console.log(error);
+    }
+
+    // setSearchText('');
   }
 
   return (
